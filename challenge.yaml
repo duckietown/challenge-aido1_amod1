@@ -39,7 +39,7 @@ steps:
         aido-scorer:
           image: _ # to be filled in
         solution:
-          image: duckietown/challenge-dummy-solution
+          image: duckietown/challenge-dummy-solution:master18
 
     features_required: {}
 

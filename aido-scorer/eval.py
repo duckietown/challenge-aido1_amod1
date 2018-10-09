@@ -12,8 +12,14 @@ class Scorer(ChallengeEvaluator):
 
     def score(self, cie):
         assert isinstance(cie, ChallengeInterfaceEvaluator)
+        previous = 'step1-simulation'
+        assert previous in cie.get_completed_steps()
+        fn = cie.get_completed_step_evaluation_file(previous, 'aidoScoresIntg.csv')
+        from read_scores import read_scores_data
+        stats, scores = read_scores_data(fn)
 
-        cie.set_score('passed2', True)
+        for k,v in scores.items():
+            cie.set_score(k, v)
 
 
 if __name__ == '__main__':

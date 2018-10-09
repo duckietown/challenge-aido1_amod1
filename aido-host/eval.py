@@ -57,7 +57,7 @@ class Evaluator(ChallengeEvaluator):
         ]
 
         for fn in files:
-            full = os.path.join('/amod/target/output/001', fn)
+            full = os.path.join('/amod/target/output/001/data', fn)
             cie.set_evaluation_file(os.path.basename(fn), full)
 
         cie.set_score('passed', True)
