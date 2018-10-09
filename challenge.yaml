@@ -1,6 +1,7 @@
 
-challenge: aido1_test_amod
-title: "[Test] AMOD simulation test"
+challenge: aido1_amod1
+tags: [aido1]
+title: "AMOD challenge 1"
 
 description: null # load from challenge.description.md
 
@@ -12,25 +13,41 @@ date-close: 2019-01-01t21:59:43.10-05:00
 roles: {}
 
 steps:
-  step1:
-    title: First and only step
-    description: ""
+  step1-simulation:
+    title: Simulation step
+    description: |
+      This is the simulation step.
 
     timeout: 100
     evaluation_parameters:
       services:
         aido-host:
-          image: _
+          image: _ # to be filled in
         solution:
           image: SUBMISSION_CONTAINER
 
-    features_required:
-      ram_available_mb: 400
-      disk_available_mb: 100
+    features_required: {}
+
+  step2-scoring:
+    title: Scoring step
+    description: |
+      This step computes the actual scores.
+
+    timeout: 100
+    evaluation_parameters:
+      services:
+        aido-scorer:
+          image: _ # to be filled in
+        solution:
+          image: duckietown/challenge-dummy-solution
+
+    features_required: {}
 
 transitions:
-  - [START, success, step1]
-  - [step1, success, SUCCESS]
-  - [step1, failed, FAILED]
-  - [step1, error, ERROR]
-
+  - [START, success, step1-simulation]
+  - [step1-simulation, success, step2-scoring]
+  - [step1-simulation, failed, FAILED]
+  - [step1-simulation, error, ERROR]
+  - [step2-scoring, success, SUCCESS]
+  - [step2-scoring, failed, FAILED]
+  - [step2-scoring, error, ERROR]

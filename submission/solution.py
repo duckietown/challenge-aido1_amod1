@@ -14,7 +14,6 @@ class Solver(ChallengeSolution):
 
         subprocess.check_call(cmd, cwd=cwd, stdout=sys.stdout, stderr=sys.stderr)
 
-
         cis.set_solution_output_dict({})
 
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import multiprocessing
+import os
 import subprocess
 import sys
 import time
@@ -38,6 +39,27 @@ class Evaluator(ChallengeEvaluator):
                '-o', '/report.pdf']
         subprocess.check_call(cmd, cwd='/', stderr=sys.stderr, stdout=sys.stdout)
         cie.set_evaluation_file('report.pdf', '/report.pdf')
+
+        files = [
+            'aidoScores1and2Intg.png',
+            'aidoScores1and2Diff.png',
+            'numberCustomersPlot.png',
+            'requestsPerDriveTime.png',
+            'requestsPerTotalTravelTime.png',
+            'requestsPerWaitTime.png',
+            'statusDistribution.png',
+            'occAndDistRatios.png',
+            'stackedDistance.png',
+            'distanceDistribution.png',
+            'binnedWaitingTimes.png',
+            'aidoScoresIntg/aidoScoresIntg.csv',
+            'aidoScoresIncr/aidoScoresIncr.csv',
+        ]
+
+        for fn in files:
+            full = os.path.join('/amod/target/output/001', fn)
+            cie.set_evaluation_file(os.path.basename(fn), full)
+
         cie.set_score('passed', True)
 
 
