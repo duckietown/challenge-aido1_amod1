@@ -1,6 +1,6 @@
 
 challenge: aido1_amod1
-tags: [aido1]
+tags: [aido1, v3]
 title: "AMOD challenge 1"
 
 description: null # load from challenge.description.md
@@ -23,6 +23,8 @@ steps:
       services:
         aido-host:
           image: _ # to be filled in
+          build:
+            context: aido-host
         solution:
           image: SUBMISSION_CONTAINER
 
@@ -38,8 +40,8 @@ steps:
       services:
         aido-scorer:
           image: _ # to be filled in
-        solution:
-          image: duckietown/challenge-dummy-solution:master18
+          build:
+            context: aido-scorer
 
     features_required: {}
 

@@ -1,9 +1,14 @@
 
 all:
 
+build:
+	docker build aido-host
+	docker build aido-scorer
+
+
 
 define-challenge:
-	dts challenges define --config challenge.yaml --build aido-host:aido-host,aido-scorer:aido-scorer
+	dts challenges define --config challenge.yaml
 
 define-challenge-no-cache:
-	dts challenges define --config challenge.yaml --build aido-host:aido-host,aido-scorer:aido-scorer --no-cache
+	dts challenges define --config challenge.yaml   --no-cache
