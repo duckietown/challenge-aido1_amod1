@@ -1,26 +1,20 @@
 #!/usr/bin/env python
 
-from duckietown_challenges import wrap_evaluator, ChallengeEvaluator, ChallengeInterfaceEvaluator
+import duckietown_challenges as dc
 
+cie = dc.ChallengeInterfaceEvaluatorConcrete()
 
-class Scorer(ChallengeEvaluator):
+previous = 'step1-simulation'
+assert previous in cie.get_completed_steps()
 
-    def prepare(self, cie):
-        assert isinstance(cie, ChallengeInterfaceEvaluator)
+fn = cie.get_completed_step_evaluation_file(previous, 'aidoScoresIntg.csv')
+from read_scores import read_scores_data
 
-        cie.set_challenge_parameters({})
+stats, scores = read_scores_data(fn)
 
-    def score(self, cie):
-        assert isinstance(cie, ChallengeInterfaceEvaluator)
-        previous = 'step1-simulation'
-        assert previous in cie.get_completed_steps()
-        fn = cie.get_completed_step_evaluation_file(previous, 'aidoScoresIntg.csv')
-        from read_scores import read_scores_data
-        stats, scores = read_scores_data(fn)
+status = 'success'
+msg = None
 
-        for k,v in scores.items():
-            cie.set_score(k, v)
+cr = dc.ChallengeResults(status, msg, scores, stats)
 
-
-if __name__ == '__main__':
-    wrap_evaluator(Scorer())
+dc.declare_challenge_results(None, cr)
