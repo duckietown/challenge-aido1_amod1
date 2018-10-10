@@ -15,6 +15,6 @@ stats, scores = read_scores_data(fn)
 status = 'success'
 msg = None
 
-cr = dc.ChallengeResults(status, msg, scores, stats)
+cr = dc.ChallengeResults(status=status, msg=msg, scores=scores, stats=stats)
 
 dc.declare_challenge_results(None, cr)
