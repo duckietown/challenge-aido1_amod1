@@ -1,10 +1,7 @@
 
-This is a test of the AMOD challenge.
+This is the AMOD challenge.
 
-### Scoring
-
-TODO
-
+ 
 ### Getting started
 
 To get started, clone the repository 

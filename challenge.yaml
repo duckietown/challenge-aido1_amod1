@@ -1,7 +1,7 @@
 
 challenge: aido1_amod1-v3
 tags: [aido1, v3]
-title: "AMOD challenge 1"
+title: "[AIDO 1] AMOD challenge (rev. 1)"
 
 description: null # load from challenge.description.md
 
@@ -11,6 +11,16 @@ date-open: 2018-09-01t21:59:43.10-05:00
 date-close: 2019-01-01t21:59:43.10-05:00
 
 roles: {}
+
+scoring:
+  scores:
+    - name: service_quality
+      description:
+    - name: efficiency
+      description:
+    - name: fleet_size
+      description:
+
 
 steps:
   step1-simulation:
