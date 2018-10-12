@@ -5,7 +5,7 @@ title: "[AIDO 1] AMOD challenge (rev. 1)"
 
 description: null # load from challenge.description.md
 
-protocol: p1
+protocol: aido1_amod1-v3
 
 date-open: 2018-09-01t21:59:43.10-05:00
 date-close: 2019-01-01t21:59:43.10-05:00
