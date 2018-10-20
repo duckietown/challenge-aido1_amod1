@@ -10,7 +10,13 @@ from duckietown_challenges import wrap_evaluator, ChallengeEvaluator, ChallengeI
 
 def start_server(cie):
     cwd = '/amod/target'
-    cmd = ['java', '-Xmx10000m', '-cp', 'amod-1.4.8.jar', 'amod.aido.AidoHost']
+    cp = 'amod-1.5.2.jar'
+    fn = os.path.join(cwd, cp)
+    if not os.path.exists(fn):
+        msg = 'Could not find %s.' % cp
+        msg += '\nThese are the files: %s' % list(os.listdir(cwd))
+        raise Exception(msg)
+    cmd = ['java', '-Xmx10000m', '-cp', cp, 'amod.aido.AidoHost']
     cie.debug('Running in %s: %s' % (cwd, cmd))
     subprocess.check_call(cmd, cwd=cwd, stderr=sys.stderr, stdout=sys.stdout)
     cie.debug('Finished start_server() thread')
