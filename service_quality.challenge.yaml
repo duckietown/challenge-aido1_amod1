@@ -1,9 +1,15 @@
 
-challenge: aido1_amod1-v3
+challenge: aido1_amod_service_quality_r1-v3
 tags: [aido1, v3]
-title: "[AIDO 1] AMOD challenge (rev. 1)"
+title: "[AIDO 1] AMOD - Service Quality (rev. 1)"
 
-description: null # load from challenge.description.md
+description: |
+  In the Service  Quality  Championship, the principal goal of the operator is to
+  provide the highest possible service quality at bounded operational cost.
+
+  The test scenario is San Francisco.
+
+  The fleet size is set to 20.
 
 protocol: aido1_amod1-v3
 
@@ -16,23 +22,30 @@ scoring:
   scores:
     - name: service_quality
       description:
-    - name: efficiency
-      description:
-    - name: fleet_size
-      description:
-
+      order: higher-is-better
+#    - name: efficiency
+#      description:
+#      order: higher-is-better
+#    - name: fleet_size
+#      description: ???
+#      order: higher-is-better
 
 steps:
+  # first step
   step1-simulation:
     title: Simulation step
     description: |
       This is the simulation step.
 
     timeout: 100
-    evaluation_parameters:
+    evaluation_parameters: # little docker-compose
       services:
         aido-host:
           image: _ # to be filled in
+          environment:
+            SCENARIO: 'SanFrancisco.20080518'
+            FLEET_SIZE: 20
+            # REQUESTS_SIZE: 500
           build:
             context: aido-host
         solution:
@@ -40,6 +53,7 @@ steps:
 
     features_required: {}
 
+  # second step
   step2-scoring:
     title: Scoring step
     description: |

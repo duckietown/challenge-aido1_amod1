@@ -1,0 +1,74 @@
+
+challenge: aido1_amod_efficiency_r1-v3
+tags: [aido1, v3]
+title: "[AIDO 1] AMOD - Efficiency (rev. 1)"
+
+description: |
+  In the Efficiency Championship, the principal goal of the operator is to perform
+  as efficiently as possible while maintaining the best possible service level.
+
+  The test scenario is San Francisco.
+
+  The fleet size is set to 20.
+
+
+protocol: aido1_amod1-v3
+
+date-open: 2018-09-01t21:59:43.10-05:00
+date-close: 2019-01-01t21:59:43.10-05:00
+
+roles: {}
+
+scoring:
+  scores:
+    - name: efficiency
+      description:
+      order: higher-is-better
+
+steps:
+  # first step
+  step1-simulation:
+    title: Simulation step
+    description: |
+      This is the simulation step.
+
+    timeout: 100
+    evaluation_parameters: # little docker-compose
+      services:
+        aido-host:
+          image: _ # to be filled in
+          environment:
+            SCENARIO: 'SanFrancisco.20080518'
+            # REQUEST_NUMBER_DESIRED: 500
+            # NUMBER_OF_VEHICLES: 20
+          build:
+            context: aido-host
+        solution:
+          image: SUBMISSION_CONTAINER
+
+    features_required: {}
+
+  # second step
+  step2-scoring:
+    title: Scoring step
+    description: |
+      This step computes the actual scores.
+
+    timeout: 100
+    evaluation_parameters:
+      services:
+        aido-scorer:
+          image: _ # to be filled in
+          build:
+            context: aido-scorer
+
+    features_required: {}
+
+transitions:
+  - [START, success, step1-simulation]
+  - [step1-simulation, success, step2-scoring]
+  - [step1-simulation, failed, FAILED]
+  - [step1-simulation, error, ERROR]
+  - [step2-scoring, success, SUCCESS]
+  - [step2-scoring, failed, FAILED]
+  - [step2-scoring, error, ERROR]

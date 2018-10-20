@@ -1,4 +1,4 @@
-FROM duckietown/amod:aido001
+FROM duckietown/amod:aido002
 
 RUN apt-get update
 RUN apt-get install -y python-pip
