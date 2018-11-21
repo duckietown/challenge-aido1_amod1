@@ -39,8 +39,8 @@ steps:
           image: _ # to be filled in
           environment:
             SCENARIO: 'SanFrancisco.20080518'
-            # REQUEST_NUMBER_DESIRED: 500
-            # NUMBER_OF_VEHICLES: 20
+            REQUEST_NUMBER_DESIRED: 500
+            NUMBER_OF_VEHICLES: 20
           build:
             context: aido-host
         solution:

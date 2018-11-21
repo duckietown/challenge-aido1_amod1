@@ -43,9 +43,9 @@ steps:
         aido-host:
           image: _ # to be filled in
           environment:
-            SCENARIO: 'SanFrancisco.20080518'
+            SCENARIO: 'SanFrancisco.20080519'
             FLEET_SIZE: 20
-            # REQUESTS_SIZE: 500
+            REQUESTS_SIZE: 500
           build:
             context: aido-host
         solution:
