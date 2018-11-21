@@ -11,18 +11,16 @@ description: |
 
 
 protocol: aido1_amod1-v3
-
-date-open: 2018-09-01t21:59:43.10-05:00
-date-close: 2019-01-01t21:59:43.10-05:00
+date-open: 2018-10-01
+date-close: 2018-12-07
 
 roles: {}
 
 scoring:
   scores:
-    - name: efficiency
-      description:
+    - name: fleet_size
+      description: Penalty for fleet size.
       order: higher-is-better
-
 steps:
   # first step
   step1-simulation:

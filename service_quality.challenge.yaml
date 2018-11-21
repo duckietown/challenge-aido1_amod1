@@ -13,8 +13,8 @@ description: |
 
 protocol: aido1_amod1-v3
 
-date-open: 2018-09-01t21:59:43.10-05:00
-date-close: 2019-01-01t21:59:43.10-05:00
+date-open: 2018-10-01
+date-close: 2018-12-07
 
 roles: {}
 
@@ -44,7 +44,7 @@ steps:
           image: _ # to be filled in
           environment:
             SCENARIO: 'SanFrancisco.20080518'
-            FLEET_SIZE: 20
+            FLEET_SIZE: "20"
             # REQUESTS_SIZE: 500
           build:
             context: aido-host
