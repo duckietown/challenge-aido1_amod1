@@ -1,18 +1,15 @@
-FROM duckietown/amod:aido001
-
-RUN apt-get update
-RUN apt-get install -y python-pip
-
-ENV CACHE=2
-
-COPY requirements.txt /project/requirements.txt
-RUN pip install -r /project/requirements.txt
-
-COPY eval.py /project/eval.py
-COPY read_scores.py /project/read_scores.py
+FROM duckietown/amod:aido2-01
 
 WORKDIR /project
 
+COPY requirements.txt .
+RUN pip3.7 install -r requirements.txt
+
+COPY eval.py .
+COPY read_scores.py .
+
+
+
 ENV PYTHONPATH=/project
 
-CMD python /project/eval.py
+CMD python3.7 /project/eval.py

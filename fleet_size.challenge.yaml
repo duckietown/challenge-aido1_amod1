@@ -1,7 +1,7 @@
 
-challenge: aido1_amod_fleet_size_r1-v3
-tags: [aido1, v3]
-title: "[AIDO 1] AMOD - Fleet Size (rev. 1)"
+challenge: aido2_amod_fleet_size_r1-v4
+tags: [aido2, v4]
+title: "[AIDO 2] AMOD - Fleet Size (rev. 1)"
 
 description: |
   In the Fleet Size Championship, the goal is to reduce the fleet size
@@ -10,7 +10,7 @@ description: |
   The test scenario is San Francisco.
 
 
-protocol: aido1_amod1-v3
+protocol: aido2_amod1-v4
 date-open: 2018-10-01
 date-close: 2018-12-07
 
@@ -32,7 +32,6 @@ steps:
     evaluation_parameters: # little docker-compose
       services:
         aido-host:
-          image: _ # to be filled in
           environment:
             SCENARIO: 'SanFrancisco.20080520'
             # FLEET_SIZE: 1000
@@ -54,7 +53,6 @@ steps:
     evaluation_parameters:
       services:
         aido-scorer:
-          image: _ # to be filled in
           build:
             context: aido-scorer
 
