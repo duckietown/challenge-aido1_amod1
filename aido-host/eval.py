@@ -10,7 +10,7 @@ from duckietown_challenges import wrap_evaluator, ChallengeEvaluator, ChallengeI
 
 def start_server(cie):
     cwd = '/amod/target'
-    cp = 'amod-1.5.2.jar'
+    cp = 'amod-1.6.7.jar'
     fn = os.path.join(cwd, cp)
     if not os.path.exists(fn):
         msg = 'Could not find %s.' % cp
