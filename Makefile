@@ -1,10 +1,9 @@
 
 all:
 
-build:
-	docker build aido-host
-	docker build aido-scorer
-
+test:
+	docker-compose down -v
+	docker-compose up --build
 
 
 define-challenge:
