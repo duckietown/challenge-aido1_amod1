@@ -7,8 +7,8 @@ push: build
 	docker push $(img)
 
 build:
-	docker build -t $(img) .
+	docker build --pull -t $(img) .
 
 build-no-cache:
-	docker build -t $(img) . --no-cache
+	docker build --pull -t $(img) . --no-cache
 

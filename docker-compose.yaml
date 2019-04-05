@@ -23,7 +23,7 @@ services:
 
   solution:
     build:
-      context: ../challenge-aido1_amod1-template-python
+      context: ../challenge-aido_amod-template-python
     environment:
       username: ${USER}
       challenge_name: aido2_amod_service_quality_r1-v4

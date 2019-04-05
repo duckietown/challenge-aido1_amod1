@@ -2,7 +2,9 @@
 all:
 
 test:
+	rm -rf out-challenges
 	docker-compose down -v
+	docker-compose build --pull
 	docker-compose up --build
 
 
