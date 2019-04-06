@@ -11,7 +11,7 @@ def read_scores_data(filename):
     def interpret(x):
         return float(x)
 
-    scores_data = map(interpret, scores_data)
+    scores_data = list(map(interpret, scores_data))
 
     stats = {}
     stats['steps'] = len(lines)
@@ -29,4 +29,4 @@ def read_scores_data(filename):
 
 
 if __name__ == '__main__':
-    print read_scores_data('example-aidoScoresIntg.csv')
+    print(read_scores_data('example-aidoScoresIntg.csv'))
