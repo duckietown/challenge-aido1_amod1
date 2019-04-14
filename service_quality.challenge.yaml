@@ -1,7 +1,6 @@
-
 challenge: aido2_amod_service_quality_r1-v4
-tags: [aido2, aido2-amod, v4]
-title: "[AIDO 2] AMOD - Service Quality (rev. 1)"
+tags: [visible, ml-validation, aido2, aido2-amod, v4]
+title: "AMOD 🤹 - Service Quality (rev. 1)"
 
 description: |
   In the Service  Quality  Championship, the principal goal of the operator is to
@@ -13,10 +12,8 @@ description: |
 
 protocol: aido2_amod1-v4
 
-date-open: 2018-10-01
-date-close: 2019-05-01
-
-roles: {}
+date-open: 2010-04-10
+date-close: 2019-05-15
 
 scoring:
   scores:
@@ -37,7 +34,7 @@ steps:
     description: |
       This is the simulation step.
 
-    timeout: 100
+    timeout: 7200 # 2 hours
     evaluation_parameters: # little docker-compose
       services:
         aido-host:
@@ -58,7 +55,7 @@ steps:
     description: |
       This step computes the actual scores.
 
-    timeout: 100
+    timeout: 600 # 10 minutes
     evaluation_parameters:
       services:
         aido-scorer:
