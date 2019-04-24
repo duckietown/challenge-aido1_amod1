@@ -1,6 +1,6 @@
-challenge: aido2_amod_fleet_size_r1-v4
+challenge: aido2-AMOD-fleet_size
 tags: [visible, ml-validation, aido2, aido2-amod, v4]
-title: "AMOD 🤹 - Fleet Size (rev. 1)"
+title: "AMOD 🤹 - Fleet Size"
 
 description: |
   In the Fleet Size Championship, the goal is to reduce the fleet size
